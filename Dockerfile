@@ -1,5 +1,13 @@
+FROM maven:3.8.5-openjdk-17-slim AS build
 
-FROM openjdk:17
-EXPOSE 8080
-ADD target/kubernetec.jar kubernetec.jar
-ENTRYPOINT ["java","-jar","/kubernetec.jar"]
+ADD ./pom.xml pom.xml
+ADD ./src src/
+
+RUN mvn clean package
+
+FROM openjdk:17-alpine
+COPY --from=build target/kubernetec.jar application.jar
+
+EXPOSE 8089
+
+CMD java -jar application.jar

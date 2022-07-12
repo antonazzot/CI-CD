@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+    dockerdb:
+        image: postgres:14.2-alpine
+        container_name: dockerdbcontainer
+        ports:
+        - 5436:5432
+        volumes:
+#         - ./sql/create.sql:/docker-entrypoint-initdb.d/create.sql
+        - ./pg_data_docker_test:/var/lib/postgresql/data/pg_data
+        environment:
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_USER: postgres
+            POSTGRES_DB: orders
+            PGDATA: /var/lib/postgresql/data/pg_data
+        restart: always
+
+
+    app:
+        build: .
+        image: kuberapp
+        container_name: kuber_container
+        ports:
+            - 8089:8089
+        restart: always
+        depends_on:
+            - dockerdb

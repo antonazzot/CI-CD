@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8089
 
 spring:
   application:
@@ -7,7 +7,7 @@ spring:
   datasource:
     password: postgres
 #      ${DB_PASSWORD}
-    url: jdbc:postgresql://localhost:5432/orders
+    url: jdbc:postgresql://dockerdb:5432/orders
 #    ${DB_HOST}/${DB_NAME}
     username: postgres
 #    ${DB_USERNAME}
