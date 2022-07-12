@@ -7,7 +7,8 @@ spring:
   datasource:
     password: postgres
 #      ${DB_PASSWORD}
-    url: jdbc:postgresql://dockerdb:5432/orders
+    url: jdbc:postgresql://${dockerdb}:5432/orders
+#    dockerdb
 #    ${DB_HOST}/${DB_NAME}
     username: postgres
 #    ${DB_USERNAME}

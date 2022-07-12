@@ -13,5 +13,5 @@ public interface CustimerRepo extends JpaRepository <Customer, Integer>, JpaSpec
 
     @Query
     (value = "select new com.tsyrkunou.kubernetec.model.CustomerDTO (c.name, c.balance) from Customer c where c.id =:id")
-    Optional<CustomerDTO> findDto(@Param("id") Long id);
+    Optional<CustomerDTO> findDto(@Param("id") Integer id);
 }

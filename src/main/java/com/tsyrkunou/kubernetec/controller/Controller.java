@@ -36,7 +36,7 @@ public class Controller {
     }
 
     @GetMapping("/getdto")
-    public ResponseEntity <CustomerDTO> getCustomerDto (@RequestParam Long id) {
+    public ResponseEntity <CustomerDTO> getCustomerDto (@RequestParam Integer id) {
         return ResponseEntity.of(customerService.getCustomerDto(id));
     }
 

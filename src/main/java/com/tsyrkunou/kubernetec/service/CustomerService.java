@@ -37,7 +37,7 @@ public class CustomerService {
         return saveCustomer(customer);
     }
 
-    public Optional<CustomerDTO> getCustomerDto(Long id) {
+    public Optional<CustomerDTO> getCustomerDto(Integer id) {
         return custimerRepo.findDto(id);
     }
 }
