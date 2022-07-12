@@ -2,6 +2,7 @@ package com.tsyrkunou.kubernetec.controller;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.tsyrkunou.kubernetec.model.Customer;
+import com.tsyrkunou.kubernetec.model.CustomerDTO;
 import com.tsyrkunou.kubernetec.model.CustomerRequst;
 import com.tsyrkunou.kubernetec.model.Order;
 import com.tsyrkunou.kubernetec.model.OrderReuast;
@@ -32,6 +33,11 @@ public class Controller {
     @GetMapping("/getall")
     public ResponseEntity <?> getAllOrders () {
         return ResponseEntity.of(Optional.ofNullable(orderService.getAll()));
+    }
+
+    @GetMapping("/getdto")
+    public ResponseEntity <CustomerDTO> getCustomerDto (@RequestParam Long id) {
+        return ResponseEntity.of(customerService.getCustomerDto(id));
     }
 
     @PostMapping("/saveorder")

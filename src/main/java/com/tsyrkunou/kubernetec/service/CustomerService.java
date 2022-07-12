@@ -1,6 +1,7 @@
 package com.tsyrkunou.kubernetec.service;
 
 import com.tsyrkunou.kubernetec.model.Customer;
+import com.tsyrkunou.kubernetec.model.CustomerDTO;
 import com.tsyrkunou.kubernetec.model.CustomerRequst;
 import com.tsyrkunou.kubernetec.repository.CustimerRepo;
 import lombok.RequiredArgsConstructor;
@@ -9,6 +10,8 @@ import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -32,5 +35,9 @@ public class CustomerService {
     public Customer createCustomer (CustomerRequst customerRequst) {
         Customer customer = mapper.customerRequstToCustomer(customerRequst);
         return saveCustomer(customer);
+    }
+
+    public Optional<CustomerDTO> getCustomerDto(Long id) {
+        return custimerRepo.findDto(id);
     }
 }
