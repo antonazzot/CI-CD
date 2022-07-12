@@ -33,7 +33,6 @@ public class OrderService {
         customer.addOder(orderNotPersist);
         Customer customer1 = customerService.saveCustomer(customer);
 
-
         return customer1.getOrders().stream().filter(order -> order.getName().equals(orderNotPersist.getName())).findFirst().orElseThrow();
     }
 
