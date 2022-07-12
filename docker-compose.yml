@@ -26,3 +26,4 @@ services:
         restart: always
         depends_on:
             - dockerdb
+        restart: always
