@@ -18,7 +18,7 @@ spec:
           image: kuberapp # Image that will be used to containers in the cluster
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8089 # The port that the container is running on in the cluster
+            - containerPort: 8082 # The port that the container is running on in the cluster
 
 
 ---
@@ -32,6 +32,6 @@ spec:
     app: kuber
   ports:
     - protocol: "TCP"
-      port: 8089 # The port that the service is running on in the cluster
-      targetPort: 8089 # The port exposed by the service
+      port: 8082 # The port that the service is running on in the cluster
+      targetPort: 8082 # The port exposed by the service
   type: NodePort # type of the service.
